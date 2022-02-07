@@ -34,7 +34,7 @@ export default class Student extends Component {
         this.getStudents();
       }      
     getStudents() {
-    axios.get("http://localhost:3306/api/students").then((response) => {
+    axios.get("/api/students").then((response) => {
         if (response.status === 200) {
         this.setState({
             students: response.data.data ? response.data.data : [],
@@ -64,7 +64,7 @@ export default class Student extends Component {
     addStudent = () => {
         axios
           .post(
-            "http://localhost:3306/api/create-student",
+            "/api/create-student",
             this.state.newStudentData
           )
           .then((response) => {
@@ -118,7 +118,7 @@ export default class Student extends Component {
           isLoading: true,
         });
         axios
-          .post("http://localhost:3306/api/create-student", {
+          .post("/api/create-student", {
             first_name,
             last_name,
             email,
@@ -144,7 +144,7 @@ export default class Student extends Component {
           isLoading: true,
         });
         axios
-          .delete("http://localhost:3306/api/student/" + id)
+          .delete("/api/student/" + id)
           .then((response) => {
             this.setState({
               isLoading: false,

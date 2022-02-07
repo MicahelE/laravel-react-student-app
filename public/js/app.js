@@ -80953,7 +80953,7 @@ var Student = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "addStudent", function () {
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("http://localhost:3306/api/create-student", _this.state.newStudentData).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/create-student", _this.state.newStudentData).then(function (response) {
         var students = _this.state.students;
 
         var newStudents = _toConsumableArray(students);
@@ -81015,7 +81015,7 @@ var Student = /*#__PURE__*/function (_Component) {
         isLoading: true
       });
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("http://localhost:3306/api/create-student", {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/create-student", {
         first_name: first_name,
         last_name: last_name,
         email: email,
@@ -81048,7 +81048,7 @@ var Student = /*#__PURE__*/function (_Component) {
         isLoading: true
       });
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]("http://localhost:3306/api/student/" + id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]("/api/student/" + id).then(function (response) {
         _this.setState({
           isLoading: false
         });
@@ -81095,7 +81095,7 @@ var Student = /*#__PURE__*/function (_Component) {
     value: function getStudents() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("http://localhost:3306/api/students").then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/students").then(function (response) {
         if (response.status === 200) {
           _this2.setState({
             students: response.data.data ? response.data.data : []
